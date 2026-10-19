@@ -1,0 +1,4 @@
+interface:
+  display_name: "Raven Signout"
+  short_description: "Merge PR, sync Plane, clean up, and verify signout"
+  default_prompt: "Use $raven-signout to finish my task, merge its PR when eligible, update Plane, clean up, and verify the final status."
