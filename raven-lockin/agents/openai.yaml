@@ -1,0 +1,4 @@
+interface:
+  display_name: "Raven Lockin"
+  short_description: "Start a task in a worktree and deliver its PR"
+  default_prompt: "Use $raven-lockin to understand my request, prepare a worktree from updated master, implement and verify, and open a PR as TahmidAurelius."
