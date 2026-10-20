@@ -81,6 +81,13 @@ Re-read the PR and ticket when applicable, compare local HEAD with the pushed re
 
 Return the PR link, ticket link (or `Plane: skipped`), task branch, absolute worktree path, validation summary, and material limitations or pending checks. State verified identity and completion accurately. If no meaningful code change is needed, explain the evidence rather than creating an empty commit/PR; report any ticket state that needs follow-up.
 
+Always include two copyable Bash command blocks in the final handoff, filled with the actual task paths, branch, and launch command:
+
+1. **Enter the task worktree and branch.** Use `cd -- '<absolute-bash-worktree-path>' && git switch '<task-branch>'`. The branch already belongs to this worktree; enter it before switching rather than trying to check out the same branch in the base checkout. Verify that this is the recorded task worktree and branch before providing the command.
+2. **Run the board from any directory.** Inspect the task worktree's documentation, package scripts, or launch tooling to determine the board's real start command and required working directory. Provide a self-contained command such as `(cd -- '<absolute-bash-launch-directory>' && <verified-board-start-command>)`. Use the task worktree's board, including any required board/package selector or arguments. The subshell lets this run from any current directory without changing the caller's directory. Include required setup or environment prerequisites and distinguish a command verified by inspection from a successful launch. If the task has no runnable board or its launch command cannot be determined, state that limitation instead of inventing one.
+
+Use paths appropriate to the user's Bash environment: for example `/v/OFFICE_STUFF/...` for Git Bash or `/mnt/v/OFFICE_STUFF/...` for WSL when that mount is verified. Quote paths and arguments safely, including spaces and apostrophes; do not leave example paths or placeholder commands in the delivered handoff. These are commands for the user to run; preparing them does not require starting a long-running board server during delivery.
+
 ## Installation
 
 Copy or clone this entire skill folder, including `references/`, then run `install.ps1` to register it for Codex and Claude Code. On Windows requiring signed scripts, run `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1` from this folder (process-only policy override). Each desktop needs its own junctions and authentication. Invoke `$raven-lockin` in Codex or `/raven-lockin` in Claude Code; reload/start a new agent session if needed for discovery.
