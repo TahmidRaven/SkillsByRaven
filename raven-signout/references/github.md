@@ -48,6 +48,20 @@ For body edits, use `PATCH /repos/{owner}/{repo}/pulls/{number}` with a structur
 
 Confirm `merged == true`, merge commit, and merge time with a fresh PR read, then return to the main skill's Plane stage. Closed without merge is a terminal incomplete outcome; do not reopen or cancel a ticket implicitly.
 
+## Description style and review updates
+
+Follow the explanatory style of Raven's [bulk #2383](https://github.com/idnerdidx/bulk/pull/2383), [bulk #2324](https://github.com/idnerdidx/bulk/pull/2324), and [bundle #356](https://github.com/idnerdidx/bundle/pull/356). These private PRs are examples, not runtime dependencies; the rules here are sufficient. Preserve repository template requirements and useful attribution.
+
+Keep the title specific to the affected board/component and resulting change, with a verified ticket handle when available. Keep `## What`, `## Why`, `## How`, and `## Testing` (or equivalent template headings) current: visible before/after behavior and scope; the requirement/defect; the relevant implementation mechanism and compatibility implications; and actual validation commands/harnesses, outcomes, and limitations. Explain concrete changes rather than listing files alone. A small visual change needs only a few focused paragraphs; complex review fixes need enough evidence for another reviewer to assess them.
+
+For one review finding, add/update a concise `## Review feedback addressed` explanation with reviewer, concern, fix, commit SHA, and regression evidence. For several, use `## Review response` and a `Finding | Fix | Commit | Verification / status` table. Carry unresolved findings forward. Distinguish **implemented; awaiting re-review** from reviewer-confirmed acceptance; report each review round's actual outcome without claiming all findings resolved prematurely. Do not paste whole review transcripts.
+
+Refresh the same body after each pushed review-fix milestone or material change in scope or verification, and reconcile it again before merge. Rewrite stale claims throughout the body: adding a saved-layout migration changes a "pure rename" description, and a later failing reproduction supersedes an earlier "all blockers addressed" statement. Update obsolete test counts and remaining-check lists instead of stacking contradictory progress notes.
+
+Keep automated tests, static inspection, local/headless renders, and live-device checks distinct. Include available visual evidence without inventing attachments. Attribute reviewer-run tests to the reviewer and tested SHA; do not claim they were run by this workflow or passed on a later head. Keep unrun live-feed, restart, export, or deployment checks unchecked in `## Remaining before merge` when applicable. Explain any evidence that a failure predates the change; otherwise leave that classification unconfirmed. Approval does not complete outstanding validation or override a known blocker; report whether an unrun check is a required gate or a disclosed follow-up based on task/repository requirements. Do not check it off merely to finish signout.
+
+Use the body PATCH procedure above and re-read the saved body plus head SHA to verify the update. Reconcile concurrent head changes before calling it current. Keep ticket links and useful commit references. These updates do not authorize GitHub comments or reviews.
+
 ## Watching when not ready
 
 Default cadence is 60 seconds, with no default idle timeout. Honor a user-supplied cadence or silence budget; reset a silence budget on each actual change in checks/reviews/comments/head/mergeability. Report meaningful changes concisely.

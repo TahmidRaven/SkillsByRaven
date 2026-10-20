@@ -34,6 +34,8 @@ When a corresponding ticket is accessible, read its scope and linked PRs. If Pla
 
 Read the current PR description Markdown and final diff. Update the body in place only if its scope, resulting behavior, validation evidence, or ticket/issue links are stale or missing. Preserve useful links, attribution, and required repository template/footer content. Do not invent passing tests or rewrite the bot-owned mirror issue. No GitHub comments are needed for signout. Use structured API input or a temporary body file, with correct shell quoting.
 
+Follow the bundled GitHub reference's **What / Why / How / Testing** description style and review-update rules. After each pushed fix, reconcile the full body with the latest head, including commit-linked review responses, actual verification, and remaining manual/device checks. Remove stale claims of completion or unchanged behavior when subsequent fixes invalidate them. An approval does not establish that an unrun check passed.
+
 If already merged, skip the merge call and proceed to Plane sync. A closed unmerged PR is an incomplete signout: report it, do not reopen it or mark the ticket Done.
 
 For an open PR, follow the bundled GitHub reference even when it appears immediately mergeable: read feedback first, require approval on the current head SHA, no standing changes-requested verdict, and merge-ready state. Bind the merge to the inspected head SHA and use the repository's permitted merge method; never admin-override protections, force-merge, or dismiss reviews to get through. If the head changes, re-read and re-evaluate.

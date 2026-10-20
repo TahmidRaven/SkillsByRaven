@@ -71,6 +71,8 @@ When the task is implemented and relevant checks pass, push the final commits an
 
 Read and follow the repository's PR template. Write a reviewer-ready title and Markdown body explaining **what changed, why it was needed, how it works, verifications and results, and any risks/limitations or follow-up requirements**. Keep detail proportional to scope. Include the Plane URL/handle when available, a genuine closing GitHub issue reference when verified, and useful before/after evidence. Preserve required template/footer sections. Never invent tests, issue references, or ticket links.
 
+Use the **What / Why / How / Testing** description style and review-update rules in the bundled GitHub reference. Refresh the existing PR body after each pushed review fix or material change in scope or verification; keep the whole description consistent with the latest head rather than only prepending a progress note. Report implemented fixes separately from reviewer-confirmed resolutions and keep outstanding manual/device checks visible.
+
 Create the PR with authenticated structured API input or a body file using the bundled instructions. Verify its API `user.login` is TahmidAurelius, head branch/repository, base branch, latest pushed SHA, URL, and draft status. Check current CI status and disclose pending/failing checks. Do not merge or start a separate review-watch/signout workflow unless the user also requested it.
 
 If Plane applies, add/update an outcome comment with the PR URL, current progress and verification summary. Move In Progress to the project's review state when appropriate; preserve a human-set later state. Opening a PR does not mark the ticket Done.
